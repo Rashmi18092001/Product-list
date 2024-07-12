@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+
+    background-color: #404851;
+}
+.line{
+    color: #72787e;
+}
+.text{
+    color: #72787e;
+    margin-left: 0.5rem;
+}
+.left{
+    display: flex;
+    align-items: center; 
+}
+.left h1{
+    color: white;
+}
+.right{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    background-color: #313941;
+    box-shadow: inset -1px -1px 3px 1px #67728b;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 7px;
+}
+.nav-btn{
+     font-size: 1.2rem;
+}
+.container{
+    padding: 4rem;
+    background-color: #d2d9de;
+}
+h1{
+    color: #38414B;
+    text-align: center;
+}
+.cards-container{
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+.card{
+    width: 25vw;
+    /* height: 55vh; */
+    background-color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 7px solid #EBE7F0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px 3px #cacaca ;
+}
+.title{
+    font-size: 2rem;
+}
+.price{
+    font-size: 2rem;
+}
+.badge{
+    display: inline-block; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
+    background-color: rgb(255, 187, 0);
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center; 
+    border-radius: 7px;
+}
+.vendor{
+    font-size: 1.2rem;
+}
+.img{
+    width: 20vw;
+    height: 45vh;
+    text-align: center;
+    /* padding: 2rem; */
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.btns{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    
+}
+.buy{
+    padding: 0.5rem;
+    box-shadow: -1px -1px 3px 2px #c24444;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.CategoryList{
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cat{
+    width: fit-content;
+    background-color: white;
+    color: #6B7178;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.2rem 1rem;
+    border: none;
+    border-radius: 7px;
+}
