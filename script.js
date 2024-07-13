@@ -61,14 +61,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const shortTitle = product.title.length > 20 ? `${product.title.substring(0, 15)}...` : product.title;
 
         card.innerHTML = `
-            <div class="cards">
+        <div class="cards">
             <p class="badge">${product.badge_text}</p>
-            <p class="title">${shortTitle}</p>
+            
             <div class="img">
               <img src=${product.image} alt="img">
             </div>
-            <p class="price">₹${product.price}</p>
-            <p class="vendor">${product.vendor}</p>
+            <p class="title">${shortTitle}</p>
+             <p class="vendor">${product.vendor}</p>
+            <div class="prices">
+                <p class="price g">₹${product.price}</p>
+                <p class="price r">₹${product.compare_at_price}</p>
+            </div>
+           
             <div class="btns">
                 <button class="buy">Add to Cart</button>
                 <button class="buy">Buy Now</button>
