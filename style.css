@@ -156,3 +156,28 @@ img{
 .cat:hover{
     box-shadow: -1px -1px 14px 3px #67728b;
 }
+
+/* search */
+.search-bar{
+    text-align: center;
+    margin: 2rem 0;
+}
+.search-bar input{
+    padding: 0.7rem;
+    border-radius: 50px;
+    border: none;
+    border: 2px solid #404851;
+    font-size: 1.2rem;
+
+}
+.ri-search-line{
+    font-size: 2rem;
+    color: #404851;
+}
+.search-btn{
+    background-color: transparent;
+    border: none;
+}
+.search-btn:hover{
+    font-weight: 900;
+}

@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnMen = document.getElementById('btn-men');
     const btnWomen = document.getElementById('btn-women');
     const btnKids = document.getElementById('btn-kids');
-    const searchBtn = document.querySelector('.search-btn');
-    const searchInput = document.querySelector('.search-bar input');
     let productsData = []; // To store all products data initially
 
     // Fetch data from API
@@ -27,20 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             btnKids.addEventListener('click', function() {
                 filterProducts('Kids');
-            });
-
-            // Search functionality
-            searchBtn.addEventListener('click', function() {
-                const searchTerm = searchInput.value.trim().toLowerCase();
-                searchProducts(searchTerm);
-            });
-
-             // Trigger search on "Enter" key press
-            searchInput.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter') {
-                    const searchTerm = searchInput.value.trim().toLowerCase();
-                    searchProducts(searchTerm);
-                }
             });
         })
         .catch(error => {
@@ -66,30 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
             displayProducts([filteredProducts]);
         } else {
             console.log(`No products found for category: ${categoryName}`);
-        }
-    }
-
-    // Function to search products based on input value
-    function searchProducts(searchTerm) {
-        if (!searchTerm) {
-            displayProducts(productsData); // If search term is empty, display all products
-            return;
-        }
-
-        const filteredCategories = productsData.map(category => {
-            const filteredProducts = category.category_products.filter(product => {
-                return product.title.toLowerCase().includes(searchTerm) || 
-                       product.vendor.toLowerCase().includes(searchTerm) || 
-                       category.category_name.toLowerCase().includes(searchTerm) ||
-                       (product.badge_text && product.badge_text.toLowerCase().includes(searchTerm));
-            });
-            return { ...category, category_products: filteredProducts };
-        }).filter(category => category.category_products.length > 0);
-
-        if (filteredCategories.length > 0) {
-            displayProducts(filteredCategories);
-        } else {
-            displayNoProductsMessage();
         }
     }
 
@@ -121,14 +81,5 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>`;
 
         return card;
-    }
-
-    // Function to display a message when no products are found
-    function displayNoProductsMessage() {
-        cardsContainer.innerHTML = ''; // Clear existing cards
-        const message = document.createElement('p');
-        message.classList.add('no-products-message');
-        message.textContent = 'No products found for the given search term.';
-        cardsContainer.appendChild(message);
     }
 });
