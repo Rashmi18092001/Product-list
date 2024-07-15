@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .navbar{
     display: flex;
@@ -43,6 +43,7 @@
 }
 .nav-btn{
      font-size: 1.2rem;
+     cursor: pointer;
 }
 .right:hover{
     box-shadow: inset -1px -1px 14px 9px #67728b;
