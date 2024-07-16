@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnKids = document.getElementById('btn-kids');
     const searchBtn = document.querySelector('.search-btn');
     const searchInput = document.querySelector('.search-bar input');
+    const cartContainerIcon = document.querySelector('.cart-container');
     let productsData = []; // To store all products data initially
 
     // Fetch data from API
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchProducts(searchTerm);
             });
 
-             // Trigger search on "Enter" key press
+            // Trigger search on "Enter" key press
             searchInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
                     const searchTerm = searchInput.value.trim().toLowerCase();
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const filteredProducts = category.category_products.filter(product => {
                 return product.title.toLowerCase().includes(searchTerm) || 
                        product.vendor.toLowerCase().includes(searchTerm) || 
-                       category.category_name.toLowerCase().includes(searchTerm) ||
+                       category.category_name.toLowerCase() === searchTerm ||
                        (product.badge_text && product.badge_text.toLowerCase().includes(searchTerm));
             });
             return { ...category, category_products: filteredProducts };
@@ -103,25 +104,40 @@ document.addEventListener('DOMContentLoaded', function() {
         card.innerHTML = `
         <div class="cards">
             <p class="badge">${product.badge_text}</p>
-            
             <div class="img">
-              <img src=${product.image} alt="img">
+                <img src=${product.image} alt="img">
             </div>
             <p class="title">${shortTitle}</p>
-             <p class="vendor">${product.vendor}</p>
+            <p class="vendor">${product.vendor}</p>
             <div class="prices">
                 <p class="price g">₹${product.price}</p>
                 <p class="price r">₹${product.compare_at_price}</p>
             </div>
-           
             <div class="btns">
-                <button class="buy">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
                 <button class="buy">Buy Now</button>
             </div>
-          </div>`;
+        </div>`;
+
+        // Add event listener to "Add to Cart" button
+        card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
 
         return card;
     }
+
+    // Function to add product to cart
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('Product added to cart:', product);
+        alert('Product added to cart');
+    }
+
+    // Redirect to cart page on cart icon click
+    cartContainerIcon.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+    });
 
     // Function to display a message when no products are found
     function displayNoProductsMessage() {
